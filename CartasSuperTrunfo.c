@@ -3,13 +3,13 @@
 int main()
 {
     // Definindo as variáveis do projeto Cartas Super Trunfo
-    char CodigoCidade1[100], nome1[100], escala1, 
-    jogador1[20], 
-    CodigoCidade2[100], nome2[100], escala2,
-    jogador2[20];
+    char CodigoCidade1[100], nome1[100], escala1,
+        jogador1[20],
+        CodigoCidade2[100], nome2[100], escala2,
+        jogador2[20];
 
     float Populacao1, area1, DensidadePopulacional1, PIBCapita1,
-    Populacao2, area2, DensidadePopulacional2, PIBCapita2;
+        Populacao2, area2, DensidadePopulacional2, PIBCapita2;
     double pib1, pib2;
     int PontosTuristicos1, PontosTuristicos2;
 
@@ -17,7 +17,7 @@ int main()
     printf("Jogo Cartas Super Trunfo: Jogador 1 x Jogador 2!\n");
     printf("Escolha suas cartas, desafie seu oponente e descubra quem é o verdadeiro mestre do Super Trunfo!\n\n");
 
-    //utilizei a função fgets() da biblioteca do stdio.h para capturar os nomes completos.
+    // utilizei a função fgets() da biblioteca do stdio.h para capturar os nomes completos.
     printf("Escolha o nome do Jogador 1:");
     fgets(jogador1, sizeof(jogador1), stdin);
     printf("Escolha o nome do Jogador 2:");
@@ -46,7 +46,7 @@ int main()
     // Convertendo o PIB com base na escala
     if (escala1 == 'm' || escala1 == 'M')
     {
-        pib1  *= 1e6;
+        pib1 *= 1e6;
     }
     else if (escala1 == 'b' || escala1 == 'B')
     {
@@ -65,14 +65,14 @@ int main()
     printf("\nDados da cidade:\n");
     printf("Código da cidade: %s\n", CodigoCidade1);
     printf("Cidade: %s\n", nome1);
-    printf("População: %.2f\n", Populacao1  );
+    printf("População: %.2f\n", Populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f\n", pib1);
     printf("Número de pontos turísticos: %d\n", PontosTuristicos1);
     printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacional1);
     printf("PIB per Capita: %.2f\n\n", PIBCapita1);
 
-    //Agora entrando com as propriedades das cartas do jogador2
+    // Agora entrando com as propriedades das cartas do jogador2
     printf("Agora digite as propriedades da %s", jogador2);
 
     printf("\n%sadicione as propriedades das cartas!\n\n", jogador2);
@@ -97,7 +97,7 @@ int main()
     // Convertendo o PIB com base na escala
     if (escala2 == 'm' || escala2 == 'M')
     {
-        pib2  *= 1e6;
+        pib2 *= 1e6;
     }
     else if (escala2 == 'b' || escala2 == 'B')
     {
@@ -123,10 +123,21 @@ int main()
     printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacional2);
     printf("PIB per Capita: %.2f\n\n", PIBCapita2);
 
-
-    if(DensidadePopulacional1 < DensidadePopulacional2){
+    // utilizei uma estrutura de condição para comparar os valores e decidir o vencedor
+    if (DensidadePopulacional1 < DensidadePopulacional2)
+    {
         printf("Jogador %s Ganhou está partida!", jogador1);
-    }else if(DensidadePopulacional2 < DensidadePopulacional1){
+    }
+    else if (DensidadePopulacional2 < DensidadePopulacional1)
+    {
+        printf("Jogador %s Ganhou está partida!", jogador2);
+    }
+    else if (Populacao1 > Populacao2 || area1 > area2 || pib1 > pib2 || PontosTuristicos1 > PontosTuristicos2)
+    {
+        printf("Jogador %s Ganhou está partida!", jogador1);
+    }
+    else if (Populacao2 > Populacao1 || area2 > area1 || pib2 > pib1 || PontosTuristicos2 > PontosTuristicos1)
+    {
         printf("Jogador %s Ganhou está partida!", jogador2);
     }
 
@@ -142,4 +153,13 @@ População: Aproximadamente 90.000 habitantes.
 Área: 1.213,2 km²
 PIB: R$ 2,5 bilhões.
 Número de Pontos Turísticos: 15.
+
+outro dado
+
+Código da Cidade: 3550308
+Nome: São Paulo
+População: 11.451.999 habitantes (2022)
+Área: 1.521.202 km²
+PIB per capita: R$ 66.872,84 (2021)
+Número de Pontos Turísticos: Dados específicos não disponíveis; a cidade possui diversos pontos turísticos renomados, como a Avenida Paulista, o Parque Ibirapuera e o Museu do Ipiranga.
 */
